@@ -5,11 +5,8 @@ import Taskbox from "./Taskbox";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 function Navbar(props) {
-  const [tasks, setTasks] = useState(["test"]);
+  const [tasks, setTasks] = useState(["Task1", 'Task2', 'Task3']);
 
-//   useEffect(()=>{
-
-//   },[tasks])
 
   const handleClick = (e) => {
     e.preventDefault();
