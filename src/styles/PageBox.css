@@ -4,6 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 4rem;
     border: solid 1px black;
+    background-color: rgb(75, 132, 238);
+}
+
+.pageBoxContainer:hover {
+    background-color: rgb(96, 179, 238);
+    
 }

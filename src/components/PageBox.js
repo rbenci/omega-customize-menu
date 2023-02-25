@@ -1,6 +1,8 @@
-import '../styles/PageBox.css'
-import React from 'react';
+/** @format */
 
-export const PageBox = ({ name }) => {
-	return <div className="pageBoxContainer">{name}</div>;
+import "../styles/PageBox.css";
+import React from "react";
+
+export const PageBox = ({ name, id }) => {
+  return <div id={id} style={{fontWeight: 'bold'}} className="pageBoxContainer">{name}</div>;
 };
