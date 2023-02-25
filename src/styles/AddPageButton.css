@@ -1,6 +1,7 @@
 .addPageContainer {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  margin-top: .5rem;
 }
 
 .addPageContainer form {
