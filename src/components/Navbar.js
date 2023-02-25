@@ -1,7 +1,6 @@
 /** @format */
 import "../styles/Navbar.css";
 import React, { useState } from "react";
-import { PageBox } from "./PageBox";
 
 import { AddPageButton } from "./AddPageButton";
 import VerticalBox from "./VerticalBox";
