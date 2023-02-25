@@ -1,0 +1,49 @@
+.addPageContainer {
+  display: flex;
+  align-items: center;
+}
+
+.addPageContainer form {
+  display: flex;
+  align-items: center;
+}
+
+.addPageContainer input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.addPageContainer button[type="submit"],
+.addPageContainer button[type="button"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.addPageContainer button[type="submit"]:hover,
+.addPageContainer button[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+.addPageContainer button[type="submit"] {
+  margin-right: 10px;
+}
+
+.addPageContainer button[type="button"] {
+  background-color: #cccccc;
+  margin-right: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.addPageContainer input[type="text"].invalidInput {
+	border: 2px solid red;
+}

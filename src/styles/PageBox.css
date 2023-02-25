@@ -1,0 +1,9 @@
+.pageBoxContainer {
+    padding: 1rem;
+    padding-inline: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    border: solid 1px black;
+}
