@@ -3,13 +3,9 @@
 	align-items: center;
 	width: auto;
     position: relative;
-
-	background-color: rgb(75, 132, 238);
+    align-self: flex-start;
+    box-sizing: border-box;
 	flex-direction: column;
 	border-radius: 10px;
     
-}
-
-.pageBoxContainer:hover {
-	background-color: rgb(96, 179, 238);
 }
