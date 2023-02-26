@@ -1,15 +1,15 @@
 .pageBoxContainer {
-    padding: 1rem;
-    padding-inline: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    border: solid 1px black;
-    background-color: rgb(75, 132, 238);
+	display: flex;
+	align-items: center;
+	width: auto;
+    position: relative;
+
+	background-color: rgb(75, 132, 238);
+	flex-direction: column;
+	border-radius: 10px;
+    
 }
 
 .pageBoxContainer:hover {
-    background-color: rgb(96, 179, 238);
-    
+	background-color: rgb(96, 179, 238);
 }
