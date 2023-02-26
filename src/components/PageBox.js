@@ -41,7 +41,7 @@ export const PageBox = ({ name, id, level, handleDelete }) => {
 					alignSelf: level === 0 ? 'center' : 'flex-start',
 					textTransform: 'uppercase',
 					letterSpacing: '1px',
-					
+
 					whiteSpace: 'nowrap',
 					overflow: 'hidden',
 					textOverflow: 'ellipsis', // add this to shorten long names with an ellipsis,
@@ -62,6 +62,7 @@ export const PageBox = ({ name, id, level, handleDelete }) => {
 							backgroundColor: 'red',
 							width: '40px',
 							height: '40px',
+							color: 'white',
 							fontSize: '20px',
 							borderRadius: '20px',
 							display: 'flex',
