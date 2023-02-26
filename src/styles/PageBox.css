@@ -2,10 +2,25 @@
 	display: flex;
 	align-items: center;
 	width: auto;
-    position: relative;
-    align-self: flex-start;
-    box-sizing: border-box;
+	position: relative;
+	align-self: flex-start;
+	box-sizing: border-box;
 	flex-direction: column;
 	border-radius: 10px;
-    
+}
+
+.deleteIcon {
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	cursor: pointer;
+	background-color: red;
+	width: 40px;
+	height: 40px;
+	color: white;
+	font-size: 20px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
