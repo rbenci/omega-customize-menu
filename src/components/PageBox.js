@@ -19,11 +19,23 @@ export const PageBox = ({ name, id, level }) => {
 				borderRadius: '8px',
 				marginBottom: '10px',
 				marginLeft: level > 0 ? '20px' : '10px',
-                color:'white',
+				color: 'white',
 			}}
 			className="pageBoxContainer"
 		>
-			<div style={{ fontSize: `${3 - level / 2}rem`, alignSelf:'flex-start' }}>{name.toUpperCase()}</div>
+			<div
+				style={{
+					fontSize: `${3 - level / 2}rem`,
+					fontWeight: 'bold',
+					marginBottom: '10px',
+					textTransform: 'uppercase',
+					letterSpacing: '1px',
+					color: level > 0 ? 'white' : 'black',
+                    whiteSpace:'nowrap'
+				}}
+			>
+				{name}
+			</div>
 			{subPages.map((page, index) => {
 				return (
 					<PageBox
