@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import '../styles/AddPageButton.css';
 
-export const AddPageButton = ({ onAddPage }) => {
+export const AddPageButton = ({ onAddPage, parent, onAddSubPage}) => {
 	const [addingItem, setAddingItem] = useState(false);
 	const [pageName, setPageName] = useState('');
 	const [invalidInput, setInvalidInput] = useState(true);
@@ -12,7 +12,7 @@ export const AddPageButton = ({ onAddPage }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (pageName.trim() !== '') {
-			onAddPage(pageName);
+			parent ? onAddSubPage(pageName, parent) : onAddPage(pageName);
 			setAddingItem(false);
 			setPageName('');
 			setInvalidInput(false);

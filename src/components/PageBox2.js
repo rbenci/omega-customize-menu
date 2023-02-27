@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { AddPageButton } from './AddPageButton';
 import { levelColors } from '../styles/levelColors';
 import '../styles/PageBox.css'
-import { PageBox2 } from './PageBox2';
 
-export const PageBox = ({ name, id, level, handleDelete, subPages, handleAddSub, handleDelSub }) => {
-	// const [subPages, setSubPages] = useState([]);
+export const PageBox2 = ({ name, id, handleDelete }) => {
+	const [subPages, setSubPages] = useState([]);
 	const [showDeleteIcon, setShowDeleteIcon] = useState(false);
 
-	// const handleDeleteSubpage = (name) => {
-	// 	const updatedPages = subPages.filter((page) => page !== name);
-	// 	setSubPages(updatedPages);
-	// };
+
+    const level = 1;
+
+	const handleDeleteSubpage = (name) => {
+		const updatedPages = subPages.filter((page) => page !== name);
+		setSubPages(updatedPages);
+	};
 
 	const pageBoxStyle = {
 		margin: level === 0 ? '10px' : 0,
@@ -59,19 +61,11 @@ export const PageBox = ({ name, id, level, handleDelete, subPages, handleAddSub,
 					</div>
 				)}
 				<AddPageButton
-					onAddSubPage={handleAddSub}
-					parent={name}
+					onAddPage={(newSubPage) => setSubPages([...subPages, newSubPage])}
 				/>
 			</div>
-			{subPages.map((page, index) => (
-				<PageBox2
-					level={level + 1}
-					name={page}
-					id={`${id}-${index}`}
-					key={`${id}-${index}`}
-					handleDelete={handleDelSub}
-				/>
-			))}
 		</div>
 	);
 };
+
+
