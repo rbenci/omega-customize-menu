@@ -45,12 +45,18 @@ function App() {
 		setShowPopup(false);
 	};
 
-	const handleSubmit = () => {
-		setShowPopup(false);
+	const handleSubmit = (e) => {
+		e.preventDefault();
 		setSubmitted(true);
-		deleteNestedItems(mainPages);
-		setMainPages([]);
-		//add functionality to send structure in an email
+
+		// Simulate a request with a timeout of 2 seconds
+		setTimeout(() => {
+			setShowPopup(false);
+			deleteNestedItems(mainPages);
+			setMainPages([]);
+			setSubmitted(false);
+			// add functionality to send structure in an email
+		}, 2000);
 	};
 
 	const handleSubmitIntention = (e) => {
@@ -103,7 +109,7 @@ function App() {
 									Cancel
 								</button>
 								<button className="popupButton submit" onClick={handleSubmit}>
-									Submit
+									{submitted ? <div className="spinner"></div> : 'Submit'}
 								</button>
 							</div>
 						</div>
