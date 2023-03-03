@@ -13,7 +13,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 100%;
-	padding: 10px
+	padding: 10px;
 }
 
 .buttons {
@@ -41,14 +41,13 @@
 	cursor: pointer;
 	font-size: 16px;
 	transition: background-color 0.2s ease-in-out;
-  box-sizing: border-box;
-   margin-inline-start: 5px;
+	box-sizing: border-box;
+	margin-inline: 5px;
 }
 
 .addPageContainer button[type='submit']:hover,
 .addPageContainer button[type='button']:hover {
 	background-color: #3e8e41;
- 
 }
 
 .addPageContainer button[type='button'] {
@@ -69,8 +68,8 @@
 	border-radius: 50%;
 	position: relative;
 	transition: all 0.2s ease-in-out;
-  align-self: flex-end;
-  margin: 10px
+	align-self: flex-end;
+	margin: 10px;
 }
 
 .plus-icon:hover {
