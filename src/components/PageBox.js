@@ -17,10 +17,10 @@ export const PageBox = ({ name, level, handleDelete }) => {
 		const newPageStructure = { ...ctx.pageStructure };
 		delete newPageStructure[pageName];
 
-		const newParentSub = newPageStructure[name]?.filter(
+		const newParentSub = newPageStructure[name].filter(
 			(page) => page !== pageName
 		);
-		newPageStructure[pageName] = [newParentSub];
+		newPageStructure[name] = [newParentSub];
 
 		ctx.setPageStructure(newPageStructure);
 	};
@@ -83,16 +83,17 @@ export const PageBox = ({ name, level, handleDelete }) => {
 			))}
 			<AddPageButton
 				onAddPage={(pageName) => {
-					setSubPages([...subPages, pageName]);
+					const fullName = pageName + '-' + uniqueId();
+					setSubPages([...subPages, fullName]);
 					const newPageStructure = { ...ctx.pageStructure };
 					console.log(newPageStructure)
 					if (newPageStructure[name].length > 0) {
-						newPageStructure[name] = [...newPageStructure[name], pageName];
+						newPageStructure[name] = [...newPageStructure[name], fullName];
 					} else {
-						newPageStructure[name] = [pageName];
+						newPageStructure[name] = [fullName];
 					}
 
-					newPageStructure[pageName] = [];
+					newPageStructure[fullName] = [];
 					ctx.setPageStructure(newPageStructure);
 				}}
 			/>
