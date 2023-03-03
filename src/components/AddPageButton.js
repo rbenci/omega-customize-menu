@@ -1,21 +1,25 @@
 /** @format */
 
-import React, { useState } from 'react';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/AddPageButton.css';
 
 export const AddPageButton = ({ onAddPage }) => {
 	const [addingItem, setAddingItem] = useState(false);
 	const [pageName, setPageName] = useState('');
 	const [invalidInput, setInvalidInput] = useState(true);
+	const inputRef = useRef();
+
+	useEffect(() => {
+		inputRef.current?.focus();
+	}, [addingItem]);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (pageName.trim() !== '') {
-			onAddPage(pageName);
 			setAddingItem(false);
-			setPageName('');
 			setInvalidInput(false);
+			setPageName('');
+			onAddPage(pageName);
 		} else {
 			setInvalidInput(true);
 		}
@@ -39,19 +43,22 @@ export const AddPageButton = ({ onAddPage }) => {
 			{addingItem ? (
 				<form onSubmit={handleSubmit}>
 					<input
+						ref={inputRef}
 						type="text"
 						value={pageName}
 						onChange={handleInputChange}
 						required
 						className={invalidInput ? 'invalidInput' : ''}
 					/>
-					<button type="submit">Add Page</button>
-					<button type="button" onClick={handleCancel}>
-						Cancel
-					</button>
+					<div className='buttons'>
+						<button type="submit">Add Page</button>
+						<button type="button" onClick={handleCancel}>
+							Cancel
+						</button>
+					</div>
 				</form>
 			) : (
-				<AiOutlinePlusCircle size={50} onClick={handleClick} />
+				<div onClick={handleClick} className="plus-icon" />
 			)}
 		</div>
 	);
