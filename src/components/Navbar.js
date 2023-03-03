@@ -10,6 +10,27 @@ export const uniqueId = () => {
 	return uuidv4();
 };
 
+export function deleteNestedItems(obj, rootKey) {
+	let newObj = obj;
+	if (newObj.hasOwnProperty(rootKey)) {
+		const nestedKeys = newObj[rootKey];
+		delete newObj[rootKey];
+		if (nestedKeys.length === 0) return newObj;
+
+		// Remove references to the key being deleted
+		for (let key in newObj) {
+			if (newObj[key].includes(rootKey)) {
+				newObj[key] = newObj[key].filter((k) => k !== rootKey);
+			}
+		}
+
+		// Recursively delete all references to the keys under the key being referenced
+		nestedKeys.forEach((key) => deleteNestedItems(newObj, key));
+	}
+	console.log(newObj);
+	return newObj;
+}
+
 export const Navbar = () => {
 	const [mainPages, setMainPages] = useState([]);
 	const ctx = useContext(PageContext);
@@ -18,10 +39,9 @@ export const Navbar = () => {
 		const updatedPages = mainPages.filter((page) => page !== pageName);
 		setMainPages(updatedPages);
 
-		const newPageStructure = { ...ctx.pageStructure };
-		delete newPageStructure[pageName];
+		const newStruct = deleteNestedItems(ctx.pageStructure, pageName);
 
-		ctx.setPageStructure(newPageStructure);
+		ctx.setPageStructure(newStruct);
 	};
 
 	return (
@@ -45,8 +65,10 @@ export const Navbar = () => {
 					const fullName = pageName + '-' + uuidv4();
 					setMainPages([...mainPages, fullName]);
 
-					const newPageStructure = { ...ctx.pageStructure };
+					let newPageStructure = ctx.pageStructure;
+
 					newPageStructure[fullName] = [];
+
 					ctx.setPageStructure(newPageStructure);
 				}}
 			/>

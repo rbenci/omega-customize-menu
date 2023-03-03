@@ -3,7 +3,7 @@ import { AddPageButton } from './AddPageButton';
 import { levelColors } from '../styles/levelColors';
 import '../styles/PageBox.css';
 import { PageContext } from '../App';
-import { uniqueId } from './Navbar';
+import { deleteNestedItems, uniqueId } from './Navbar';
 
 export const PageBox = ({ name, level, handleDelete }) => {
 	const [subPages, setSubPages] = useState([]);
@@ -14,15 +14,9 @@ export const PageBox = ({ name, level, handleDelete }) => {
 		const updatedPages = subPages.filter((page) => page !== pageName);
 		setSubPages(updatedPages);
 
-		const newPageStructure = { ...ctx.pageStructure };
-		delete newPageStructure[pageName];
+		const newStruct = deleteNestedItems(ctx.pageStructure, pageName);
 
-		const newParentSub = newPageStructure[name].filter(
-			(page) => page !== pageName
-		);
-		newPageStructure[name] = [newParentSub];
-
-		ctx.setPageStructure(newPageStructure);
+		ctx.setPageStructure(newStruct);
 	};
 
 	const pageBoxStyle = {
@@ -86,7 +80,7 @@ export const PageBox = ({ name, level, handleDelete }) => {
 					const fullName = pageName + '-' + uniqueId();
 					setSubPages([...subPages, fullName]);
 					const newPageStructure = { ...ctx.pageStructure };
-					console.log(newPageStructure)
+					console.log(newPageStructure);
 					if (newPageStructure[name].length > 0) {
 						newPageStructure[name] = [...newPageStructure[name], fullName];
 					} else {
