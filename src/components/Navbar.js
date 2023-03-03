@@ -27,12 +27,11 @@ export function deleteNestedItems(obj, rootKey) {
 		// Recursively delete all references to the keys under the key being referenced
 		nestedKeys.forEach((key) => deleteNestedItems(newObj, key));
 	}
-	console.log(newObj);
 	return newObj;
 }
 
-export const Navbar = () => {
-	const [mainPages, setMainPages] = useState([]);
+export const Navbar = ({mainPages, setMainPages}) => {
+	
 	const ctx = useContext(PageContext);
 
 	const deleteMainPage = (pageName) => {
@@ -40,7 +39,7 @@ export const Navbar = () => {
 		setMainPages(updatedPages);
 
 		const newStruct = deleteNestedItems(ctx.pageStructure, pageName);
-
+		console.log(newStruct);
 		ctx.setPageStructure(newStruct);
 	};
 
