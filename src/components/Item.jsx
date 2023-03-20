@@ -4,10 +4,12 @@ import React, { useEffect } from "react";
 import { handleDelete } from "../utils/DeleteFunc";
 import { GrFormEdit } from "react-icons/gr";
 import { useState } from "react";
-import { updateItem } from '../utils/UpdateFunc';
+import { updateItem } from "../utils/UpdateFunc";
+import { toast } from 'react-toastify';
 
 export default function Item({ bigList, item, setList }) {
   const [itemName, setItemName] = useState(item.name);
+  const [prevName, setPrevName] = useState("");
   const [editing, setEditing] = useState(false);
 
   const inputRef = React.useRef();
@@ -16,7 +18,7 @@ export default function Item({ bigList, item, setList }) {
     if (editing) {
       inputRef.current.focus();
     }
-	}, [editing]);
+  }, [editing]);
 
   const deleteItem = (e) => {
     e.preventDefault();
@@ -26,23 +28,29 @@ export default function Item({ bigList, item, setList }) {
   const handleEdit = (e) => {
     e.preventDefault();
     setEditing((prev) => !prev);
+    setPrevName(itemName);
   };
 
   const handleCancel = (e) => {
     e.preventDefault();
     setEditing((prev) => !prev);
-  };  
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // update the in the biglist
-    updateItem(bigList, item, setList, itemName);
+    if (itemName.trim()) {
+      // update the in the biglist
+      updateItem(bigList, item, setList, itemName);
 
-
-    setEditing((prev) => !prev);
+      setItemName("");
+      setEditing((prev) => !prev);
+    } else {
+      toast.error("Cannot add empty item");
+      setItemName(prevName);
+      setEditing((prev) => !prev);
+    }
   };
-
 
   return (
     <div>
