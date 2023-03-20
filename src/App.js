@@ -1,58 +1,110 @@
 /** @format */
 
+import React, { useState } from "react";
+import { ReactSortable } from "react-sortablejs";
+import Directory from "./components/Directory";
+import AddNameButton from "./components/buttons/AddNameButton";
+import AddPageDirectory from "./components/buttons/AddPageDirectory";
+import Item from "./components/Item";
+import "bootstrap/dist/css/bootstrap.css";
 import "./styles/App.css";
-import "react-toastify/dist/ReactToastify.css";
-import { deleteNestedItems, Navbar } from "./components/Navbar";
-import { createContext, useState } from "react";
-import PopupWindow from "./components/PopupWindow";
+import Header from "./components/Header";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PopupWindow from "./components/PopupWindow";
+import { createHirarchy } from "./utils/CreateHtml";
+import DeleteButton from "./components/buttons/DeleteButton";
 
-export const PageContext = createContext();
+const sortableOptions = {
+  animation: 200,
+  fallbackOnBody: true,
+  swapThreshold: 0.65,
+  ghostClass: "ghost",
+  group: "shared",
+};
 
 function App() {
-  const [pageStructure, setPageStructure] = useState({});
-  const [showPopup, setShowPopup] = useState(false);
-  const [mainPages, setMainPages] = useState([]);
+  const [list, setList] = useState([
+    { id: 11, name: "Home" },
+    {
+      id: 1,
+      name: "canvas",
+      type: "layout",
+      list: [
+        { id: 12, name: "Content" },
+        { id: 13, type: "layout", list: [{ id: 113, name: "Index" }] },
+      ],
+    },
+    { id: 2, name: "Others" },
+  ]);
 
-  const handleSubmitIntention = (e) => {
-    e.preventDefault();
-    // console.log(pageStructure);
-    setShowPopup(true);
+  const [showPopup, setShowPopup] = useState(false);
+  const [html, setHtml] = useState("");
+
+  const handleCreateHirarchy = (list) => {
+    const html = createHirarchy(list);
+    setHtml(html);
   };
 
+
   return (
-    <>
-      <PageContext.Provider
-        value={{
-          pageStructure: pageStructure,
-          setPageStructure: setPageStructure,
+    <div className="container-sm">
+      <Header
+        list={list}
+        setShowPopup={setShowPopup}
+        createHirarchy={handleCreateHirarchy}
+      />
+      <ReactSortable
+        list={list}
+        setList={setList}
+        style={{
+          padding: 10,
+          background: "#D3D3D3",
+          minHeight: "300px",
         }}
+        className="layout"
+        {...sortableOptions}
       >
-        <div className={"app"}>
-          <header className="header">
-            <h1>Create a menu</h1>
-            <h3>
-              Use the add icon to begin adding pages, you can add subpages to
-              any page you create
-            </h3>
-            <button className={"submitButton"} onClick={handleSubmitIntention}>
-              Submit
-            </button>
-          </header>
+        {list.map((item, index) => {
+          if (item.type === "layout") {
+            return (
 
-          <Navbar mainPages={mainPages} setMainPages={setMainPages} />
-          <PopupWindow
-            showPopup={showPopup}
-            pageStructure={pageStructure}
-            mainPages={mainPages}
-            setMainPages={setMainPages}
-            setShowPopup={setShowPopup}
-          />
-        </div>
-      </PageContext.Provider>
+              <div key={item.id}  className="basket">
+                <Directory
+                  {...item}
+                  indexs={[index]}
+                  setList={setList}
+                  bigList={list}
+                  sortableOptions={sortableOptions}
+                />
+                <DeleteButton list={list} setList={setList} item={item} /> 
+              </div>
+            );
+          }
+          return (
+            <Item
+              key={item.id}
+              item={item}
+              setList={setList}
+              list={list}
+              bigList={list}
+            />
+          );
+        })}
+      </ReactSortable>
 
+      <div className="button-group">
+        <AddNameButton setList={setList} list={list} />
+        <AddPageDirectory setList={setList} list={list} />
+      </div>
+      <PopupWindow
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        html={html}
+        setList={setList}
+      />
       <ToastContainer />
-    </>
+    </div>
   );
 }
 

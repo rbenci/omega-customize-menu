@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Merriweather", serif;
+}
+
+.important {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.header {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.header-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.item {
+    background-color: #7e89e8;
+    border: 1px solid #545454;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // cursor: pointer;
+
+    &:hover {
+        background-color: #6c77d6;
+        transition: 0.3s ease-in-out;
+    }
+
+}
+
+
+
+
+.layout {
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.basket {
+    position: relative;
+    .delete-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 50%;
+    margin: 1rem auto;
+}
+
+@media screen and (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+    }
+    .addtag-btn{
+        margin-bottom: 1rem;
+    }
+}
+    
+
+
+.popupContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupContent {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popupTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popupMessage {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.popupButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.popupButton {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popupButton:hover {
+    opacity: 80%;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
+.popupButton.cancel {
+    border: 1px solid black;
+    background-color: #cccccc;
+    color: #ffffff;
+}
+
+.popupButton.submit {
+    background-color: #0077ff;
+    color: #ffffff;
+}
