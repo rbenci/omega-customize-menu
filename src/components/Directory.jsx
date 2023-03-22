@@ -13,7 +13,7 @@ export default function Directory({
   bigList,
   sortableOptions,
 }) {
-  const ref = useRef(Color());
+  const ref = useRef(Color("red"));
 
   return (
     <div key={id} style={{ padding: 15 }}>

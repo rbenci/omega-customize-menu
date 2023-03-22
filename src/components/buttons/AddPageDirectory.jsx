@@ -10,10 +10,9 @@ export default function AddPageDirectory({ setList, list }) {
   return (
     <button
       type="button"
-      className="btn btn-outline-dark btn-lg"
       onClick={handleClick}
     >
-      Add Basket
+      New Sublevel
     </button>
   );
 }
