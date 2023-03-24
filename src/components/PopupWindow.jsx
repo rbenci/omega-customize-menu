@@ -55,6 +55,7 @@ export default function PopupWindow({
     <div className={`${showPopup ? "popupContainer" : ""}`}>
       <Popup
         open={showPopup}
+        onClose={handleCancel}
         contentStyle={{ overflowY: "scroll", margin: "10px auto" }}
       >
         <div className="popupContent">

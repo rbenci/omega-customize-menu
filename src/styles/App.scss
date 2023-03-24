@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .listContainer {
@@ -150,7 +151,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    transition: 0.3s ease-in-out;
 }
 
 .popupContent {
