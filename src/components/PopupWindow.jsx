@@ -36,8 +36,11 @@ export default function PopupWindow({
   };
 
   return (
-    <Popup open={showPopup}>
-      <div className="popupContainer">
+    <div className={`${showPopup ? "popupContainer" : ""}`}>
+      <Popup
+        open={showPopup}
+        contentStyle={{ overflowY: "scroll", margin: "10px auto" }}
+      >
         <div className="popupContent">
           <h2 className="popupTitle">
             Are you sure you want to submit the following navigation structure?
@@ -56,7 +59,7 @@ export default function PopupWindow({
             />
           </form>
         </div>
-      </div>
-    </Popup>
+      </Popup>
+    </div>
   );
 }

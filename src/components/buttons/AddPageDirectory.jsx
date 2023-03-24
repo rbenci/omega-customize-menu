@@ -3,7 +3,8 @@
 import React from "react";
 
 export default function AddPageDirectory({ setList, list }) {
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     setList([...list, { id: Date.now(), type: "layout", list: [] }]);
   };
 

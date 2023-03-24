@@ -1,6 +1,6 @@
 /** @format */
 
-export const updateItem = (bigList, item, setList, newName) => {
+export const updateItem = (bigList, item, newName) => {
 
     let newList = [...bigList]
 
@@ -30,6 +30,8 @@ export const updateItem = (bigList, item, setList, newName) => {
             newList[i].list = updateNested(newList[i].list, item, newName);
         }
     }
+    
+    return newList;
 
   };
   
