@@ -13,6 +13,7 @@ export default function PopupWindow({
 }) {
   const form = React.useRef();
 
+  // console.log(html);
   const handleSendEmail = (e) => {
     e.preventDefault();
     console.log("form", form.current);

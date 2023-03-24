@@ -35,7 +35,7 @@ function App() {
   document.body.style.overflow = showPopup ? 'hidden' : 'auto';
 
   const handleCreateHirarchy = (list) => {
-    console.log(list);
+    // console.log(list);
     const html = createHirarchy(list);
     setHtml(html);
   };

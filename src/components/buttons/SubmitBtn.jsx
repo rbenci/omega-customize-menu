@@ -5,7 +5,7 @@ import React from 'react';
 export default function SubmitBtn({ list, setShowPopup, createHirarchy }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(list);
+		// console.log(list);
 		setShowPopup((prev) => !prev);
 		createHirarchy(list);
 	};
