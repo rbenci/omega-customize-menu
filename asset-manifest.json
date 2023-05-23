@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.63e0bf13.chunk.css",
-    "main.js": "/static/js/main.d6fa7b61.chunk.js",
-    "main.js.map": "/static/js/main.d6fa7b61.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.54043ea6.chunk.css": "/static/css/2.54043ea6.chunk.css",
-    "static/js/2.ef062247.chunk.js": "/static/js/2.ef062247.chunk.js",
-    "static/js/2.ef062247.chunk.js.map": "/static/js/2.ef062247.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.a663d4b84d1571af287df9a421e644ee.js": "/precache-manifest.a663d4b84d1571af287df9a421e644ee.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.54043ea6.chunk.css.map": "/static/css/2.54043ea6.chunk.css.map",
-    "static/css/main.63e0bf13.chunk.css.map": "/static/css/main.63e0bf13.chunk.css.map",
-    "static/media/logo.png": "/static/media/logo.b72dfa89.png"
+    "main.css": "/omega-customize-menu/static/css/main.63e0bf13.chunk.css",
+    "main.js": "/omega-customize-menu/static/js/main.2fbc4587.chunk.js",
+    "main.js.map": "/omega-customize-menu/static/js/main.2fbc4587.chunk.js.map",
+    "runtime~main.js": "/omega-customize-menu/static/js/runtime~main.df81e757.js",
+    "runtime~main.js.map": "/omega-customize-menu/static/js/runtime~main.df81e757.js.map",
+    "static/css/2.54043ea6.chunk.css": "/omega-customize-menu/static/css/2.54043ea6.chunk.css",
+    "static/js/2.ef062247.chunk.js": "/omega-customize-menu/static/js/2.ef062247.chunk.js",
+    "static/js/2.ef062247.chunk.js.map": "/omega-customize-menu/static/js/2.ef062247.chunk.js.map",
+    "index.html": "/omega-customize-menu/index.html",
+    "precache-manifest.b481f441587e63fc272769dc748a9763.js": "/omega-customize-menu/precache-manifest.b481f441587e63fc272769dc748a9763.js",
+    "service-worker.js": "/omega-customize-menu/service-worker.js",
+    "static/css/2.54043ea6.chunk.css.map": "/omega-customize-menu/static/css/2.54043ea6.chunk.css.map",
+    "static/css/main.63e0bf13.chunk.css.map": "/omega-customize-menu/static/css/main.63e0bf13.chunk.css.map",
+    "static/media/logo.png": "/omega-customize-menu/static/media/logo.b72dfa89.png"
   }
 }
